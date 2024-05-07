@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Animo - Sharpen Your Sword</title>
+  <link href="style/style.css" rel="stylesheet" type="text/css">
+  <script src="js/settings.js"></script>
+</head>
+<body>
+  <div class="scorekeeper">
+    <div id="p1_grid" class="playerbox">P1 Placeholder</div>
+    <div id="p2_grid" class="playerbox">P2 Placeholder</div>
+    <div id="p3_grid" class="playerbox">P3 Placeholder</div>
+    <div id="p4_grid" class="playerbox">P4 placeholder</div>
+  </div>
+
+  <div id="settings_icon" class="settings_icon" onClick="showSettings()"></div>
+  <div id="settings_overlay" class="settings_overlay"></div>
+  <div id="settings_content" class="settings_content">
+    <h3>Settings</h3>
+    <p><label for="playerCount">Players:</label>
+      <select name="playerCount" id="playerCount" onChange="count_players()">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select></p>
+    <p><label for="victoryPoints">Points to win:</label>
+      <select name="victoryPoints" id="victoryPoints">
+        <option value="60">60 (standard)</option>
+        <option value="77">77 (tournament)</option>
+      </select></p>
+    <p>TODO: Add offset for "Ellie" Truth Seeker (55 for standard, 70 for tournement)</p>
+    <a href="javascript:void(0)" onClick="hideSettings()">CLOSE</a>
+  </div>
+</body>
+</html>
