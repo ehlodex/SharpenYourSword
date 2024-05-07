@@ -28,6 +28,8 @@ body {
 
 .playerbox {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #p1_grid {
@@ -67,11 +69,11 @@ body {
 .settings_content {
   display: none;
   position: absolute;
-  top: 2%;
+  top: 2vh;
   left: 2%;
   width: 96%;
-  height: 96%;
-  border: 2px solid grey;
+  height: 96vh;
+  border: none;
   background-color: white;
   z-index: 1002;
   overflow: auto;
@@ -79,10 +81,11 @@ body {
 
 .settings_icon {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 20px;
-  height: 20px;
-  background-color: black;
-  z-index: 1003;
+  top: calc(50vh - 25px);
+  right: calc(50vw - 25px);
+  width: 50px;
+  height: 50px;
+  background: url("/media/settings.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
