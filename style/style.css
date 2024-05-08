@@ -1,3 +1,10 @@
+:root {
+  --color-faith: #667799;
+  --color-hope: #f2e090;
+  --color-love: #dd7788;
+  --color-spirit: #7a9460;
+}
+
 body {
 	background: #3b3b39;
 	color: #cac8bf;
@@ -5,68 +12,40 @@ body {
   margin: 0px;
 }
 
-.scorekeeper {
+.scoreboard {
   margin: 0px;
   width: 100%;
-  height: 100vh;
-  background-color: #BADA55;
+  height: 100dvh; /* or svh */
   display: grid;
-  /* 2 players:
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr;
-  */
-  /* 3 players:
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 2fr 1fr;
-  */
-  /* 4 players: */
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-column-gap: 0px;
+  grid-template-rows: repeat(7, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-row-gap: 0px;
+  grid-column-gap: 0px;
 }
 
-.playerbox {
+.playercard, .hotbar {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-#p1_grid {
-  background: #667799;
+.playercard.p1 {
+  background-color: var(--color-faith);
 }
 
-#p2_grid {
-  background: #f2e090;
+.playercard.p2 {
+  background-color: var(--color-hope);
 }
 
-#p3_grid {
-  background: #dd7788;
-  /* 2 players: display: none; */
-  /* 3 players: grid-column: span 2; */
+.playercard.p3 {
+  background-color: var(--color-love);
 }
 
-#p4_grid {
-  background: #7a9460; 
-  /* 2 players: display: none; */
-  /* 3 players: display: none; */
+.playercard.p4 {
+  background-color: var(--color-spirit);
 }
 
-.settings_overlay {
-  display: none;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  z-index: 1001;
-  -moz-opacity: 0.8;
-  opacity: .80;
-  filter: alpha(opacity=80);
-}
-
-.settings_content {
+.settingsui {
   display: none;
   position: absolute;
   top: 2vh;
@@ -75,17 +54,106 @@ body {
   height: 96vh;
   border: none;
   background-color: white;
-  z-index: 1002;
   overflow: auto;
 }
 
-.settings_icon {
-  position: fixed;
-  top: calc(50vh - 25px);
-  right: calc(50vw - 25px);
-  width: 50px;
-  height: 50px;
-  background: url("/media/settings.png");
-  background-size: contain;
-  background-repeat: no-repeat;
+/* SOLO */
+.playercard.p1.solo {
+  display: flex;
+  grid-area: 2 / 1 / 8 / 3;
+}
+
+.playercard.p2.solo, .playercard.p3.solo, .playercard.p4.solo {
+  display: none;
+}
+
+.hotbar.solo {
+  grid-area: 1 / 1 / 2 / 3;
+}
+
+/* DUO */
+.playercard.p1.duo {
+  display: block;
+  grid-area: 5 / 1 / 8 / 3;
+}
+
+.playercard.p2.duo {
+  display: block;
+  grid-area: 1 / 1 / 4 / 3;
+}
+
+.playercard.p3.duo, .playercard.p4.duo {
+  display: none;
+}
+
+.hotbar.duo {
+  grid-area: 4 / 1 / 5 / 3;
+}
+
+/* TRIO */
+.playercard.p1.trio {
+  display: flex;
+  grid-area: 6 / 1 / 8 / 3;
+}
+
+.playercard.p2.trio {
+  display: flex;
+  grid-area: 1 / 1 / 5 / 2;
+}
+
+.playercard.p3.trio {
+  display: flex;
+  grid-area: 1 / 2 / 5 / 3;
+}
+
+.playercard.p4.trio {
+  display: none;
+}
+
+.hotbar.trio {
+  grid-area: 5 / 1 / 6 / 3;
+}
+
+/* QUAD */
+.playercard.p1.quad {
+  grid-area: 5 / 1 / 8 / 2;
+}
+
+.playercard.p2.quad {
+  grid-area: 1 / 1 / 4 / 2;
+}
+
+.playercard.p3.quad {
+  grid-area: 1 / 2 / 4 / 3;
+}
+
+.playercard.p4.quad {
+  grid-area: 5 / 2 / 8 / 3;
+}
+
+.hotbar.quad {
+  grid-area: 4 / 1 / 5 / 3;
+}
+
+/* */
+.card_inc {
+  display: inline-block;
+  width: 25%;
+  background-color: red;
+  left: 0px;
+}
+
+.card_pts {
+  display: inline-block;
+}
+
+.card_dec {
+  display: inline-block;
+  width: 25%;
+  background-color: green;
+  margin-left: auto;
+}
+
+.playercard h3, .playercard.h4 {
+  text-align: center;
 }
