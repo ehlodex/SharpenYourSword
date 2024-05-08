@@ -45,6 +45,14 @@ body {
   font-size: 4em;
 }
 
+.controls.add {
+  background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.1));
+}
+
+.controls.del {
+  background-image: linear-gradient(to left, rgba(255,255,255,0), rgba(255,255,255,0.1));
+}
+
 /* SOLO */
 .playercard.p1.solo {
   grid-area: 2 / 1 / 14 / 3;

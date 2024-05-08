@@ -7,6 +7,11 @@ let p3_sinnies = 0;
 let p4_vpoints = 0;
 let p4_sinnies = 0;
 
+let tournamentMode = 0;
+let vpointsToWin = 60;
+let sinniesToWin = 6;
+let playerCount = 2;
+
 // DEL vpoints
 function delVpoints(player) {
   if (player =='p1') {
@@ -99,3 +104,17 @@ function addSinnies(player) {
     document.getElementById(`p4_sinnie${p4_sinnies}`).style.color = "red";
   };
 };
+
+function toggleTournamentMode() {
+  if (tournamentMode == 0) {
+    tournamentMode = 1;
+    document.getElementById("tournamentMode").innerText = "toggle_on";
+    document.getElementById("tournamentModeStatus").innerText = "ON (77)";
+    vpointsToWin = 77;
+  } else {
+    tournamentMode = 0;
+    document.getElementById("tournamentMode").innerText = "toggle_off";
+    document.getElementById("tournamentModeStatus").innerText = "OFF (60)";
+    vpointsToWin = 60;
+  }
+}
