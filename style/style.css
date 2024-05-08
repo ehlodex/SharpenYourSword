@@ -13,39 +13,109 @@ body {
 }
 
 .scoreboard {
-  margin: 0px;
-  width: 100%;
-  height: 100dvh; /* or svh */
-}
-
-.playercard.p1 {
-  background-color: var(--color-faith);
-  transform: rotate(180deg);
-}
-
-.playercard.p2 {
-  background-color: var(--color-hope);
+  height: 100dvh;
+  width: 100dvw;
+  display: grid;
+  grid-template-rows: repeat(13, 1fr);
+  grid-template-columns: 1fr 1fr;
 }
 
 .playercard {
-  height: 50dvh;
   display: grid;
-  grid-template-rows: 1fr 3fr 1fr 3fr;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 3fr 1fr;
+  grid-template-columns: 1fr 4fr 1fr;
+}
+
+.playercard.p1 { background-color: var(--color-faith); }
+.playercard.p2 { background-color: var(--color-hope); }
+.playercard.p3 { background-color: var(--color-love); }
+.playercard.p4 { background-color: var(--color-spirit); }
+
+.carddata, .hotbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
 }
 
-.carddata {
-  display: block;
-  align-items: center;
-  justify-items: center;
+.vpoints {
+  font-size: 4em;
 }
 
-.cardtitle {
-  grid-column: span 3;
-  text-align: center;
-  align-items: center;
-  justify-items: center;
+/* SOLO */
+.playercard.p1.solo {
+  grid-area: 2 / 1 / 14 / 3;
+  transform: rotate(0deg);
+}
+
+.playercard.p2.solo, .playercard.p3.solo, .playercard.p4.solo {
+  display: none;
+}
+
+.hotbar.solo {
+  grid-area: 1 / 1 / 2 / 3;
+}
+
+/* DUO */
+.playercard.p1.duo {
+  grid-area: 8 / 1 / 14 / 3;
+  transform: rotate(0deg);
+}
+
+.playercard.p2.duo {
+  grid-area: 1 / 1 / 7 / 3;
+  transform: rotate(180deg);
+}
+
+.playercard.p3.duo, .playercard.p4.duo {
+  display: none;
+}
+
+.hotbar.duo {
+  grid-area: 7 / 1 / 8 / 3;
+}
+
+/* TRIO */
+.playercard.p1.trio {
+  grid-area: 8 / 1 / 14 / 3;
+}
+
+.playercard.p2.trio {
+  grid-area: 1 / 1 / 7 / 2;
+}
+
+.playercard.p3.trio {
+  grid-area: 1 / 2 / 7 / 3;
+}
+
+.playercard.p4.trio {
+  display: none;
+}
+
+.hotbar.trio {
+  grid-area: 7 / 1 / 8 / 3;
+}
+
+/* QUAD */
+.playercard.p1.quad {
+  grid-area: 8 / 1 / 14 / 2;
+}
+
+.playercard.p2.quad {
+  grid-area: 1 / 1 / 7 / 2;
+}
+
+.playercard.p3.quad {
+  grid-area: 1 / 2 / 8 / 3;
+}
+
+.playercard.p4.quad {
+  grid-area: 8 / 2 / 14 / 3;
+}
+
+.hotbar.quad {
+  grid-area: 7 / 1 / 8 / 3;
 }

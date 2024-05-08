@@ -9,25 +9,54 @@
   <script src="js/settings.js"></script>
 </head>
 <body>
+
 <div class="scoreboard">
-  <div class="playercard p1">
-    <div class="cardtitle">Victory Points</div>
-    <div class="carddata" onClick="delPointsP1()"><span class="material-symbols-outlined">do_not_disturb_on</span></div>
-    <div id="p1_score" class="carddata">0</div>
-    <div class="carddata" onClick="addPointsP1()"><span class="material-symbols-outlined">add_circle</span></div>
-    <div class="cardtitle">Sinnies Defeated</div>
-    <div class="carddata" onClick="delSinnieP1()"><span class="material-symbols-outlined">do_not_disturb_on</span></div>
-    <div class="carddata">
-      <span id="p1s1"><span class="material-symbols-outlined">block</span></span>
-      <span id="p1s2"><span class="material-symbols-outlined">block</span></span>
-      <span id="p1s3"><span class="material-symbols-outlined">block</span></span>
-      <span id="p1s4"><span class="material-symbols-outlined">block</span></span>
-      <span id="p1s5"><span class="material-symbols-outlined">block</span></span>
-      <span id="p1s6"><span class="material-symbols-outlined">block</span></span>
+  <!-- PLAYER 1 -->
+  <div class="playercard p1 duo">
+    <div class="carddata controls" id="p1_delVpoints" onClick="delVpoints('p1');"><span class="material-symbols-outlined">remove</span></div>
+    <div class="carddata vpoints" id="p1_vpoints">0</div>
+    <div class="carddata controls" id="p1_addVpoints" onClick="addVpoints('p1');"><span class="material-symbols-outlined">add</span></div>
+    <div class="carddata controls" id="p1_delSinnies" onClick="delSinnies('p1');"><span class="material-symbols-outlined">remove</span></div>
+    <div class="carddata sinnies" id="p1_sinnies">
+      <span id="p1_sinnie1"><span class="material-symbols-outlined">block</span></span>
+      <span id="p1_sinnie2"><span class="material-symbols-outlined">block</span></span>
+      <span id="p1_sinnie3"><span class="material-symbols-outlined">block</span></span>
+      <span id="p1_sinnie4"><span class="material-symbols-outlined">block</span></span>
+      <span id="p1_sinnie5"><span class="material-symbols-outlined">block</span></span>
+      <span id="p1_sinnie6"><span class="material-symbols-outlined">block</span></span>
     </div>
-    <div class="carddata" onClick="addSinnieP1()"><span class="material-symbols-outlined">add_circle</span></div>
+    <div class="carddata controls" id="p1_addSinnies" onClick="addSinnies('p1');"><span class="material-symbols-outlined">add</span></div>
   </div>
-  <div class="playercard p2">P2 Placeholder</div>
+  <!-- PLAYER 2 -->
+  <div class="playercard p2 duo">
+    <div class="carddata controls" id="p2_delVpoints" onClick="delVpoints('p2');"><span class="material-symbols-outlined">remove</span></div>
+    <div class="carddata vpoints" id="p2_vpoints">0</div>
+    <div class="carddata controls" id="p2_addVpoints" onClick="addVpoints('p2');"><span class="material-symbols-outlined">add</span></div>
+    <div class="carddata controls" id="p2_delSinnies" onClick="delSinnies('p2');"><span class="material-symbols-outlined">remove</span></div>
+    <div class="carddata sinnies" id="p2_sinnies">
+      <span id="p2_sinnie1"><span class="material-symbols-outlined">block</span></span>
+      <span id="p2_sinnie2"><span class="material-symbols-outlined">block</span></span>
+      <span id="p2_sinnie3"><span class="material-symbols-outlined">block</span></span>
+      <span id="p2_sinnie4"><span class="material-symbols-outlined">block</span></span>
+      <span id="p2_sinnie5"><span class="material-symbols-outlined">block</span></span>
+      <span id="p2_sinnie6"><span class="material-symbols-outlined">block</span></span>
+    </div>
+    <div class="carddata controls" id="p2_addSinnies" onClick="addSinnies('p2');"><span class="material-symbols-outlined">add</span></div>
+  </div>
+  <!-- PLAYER 3 -->
+  <div class="playercard p3 duo">Player 3</div>
+  <!-- PLAYER 4 -->
+  <div class="playercard p4 duo">Player 4</div>
+  
+  <div class="hotbar duo">
+    <span class="material-symbols-outlined">person_add</span>
+    <span class="material-symbols-outlined">person_remove</span>
+    <span class="material-symbols-outlined">group</span>Players
+    <span class="material-symbols-outlined">toggle_off</span>Tournament
+    <span class="material-symbols-outlined">settings</span> Settings
+  </div>
+
 </div>
+
 </body>
 </html>

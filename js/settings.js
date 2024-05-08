@@ -1,79 +1,101 @@
-let p1_points = 0;
-let p1_sinnie = 0;
-let p2_points = 0;
-let p2_sinnie = 0;
+let p1_vpoints = 0;
+let p1_sinnies = 0;
+let p2_vpoints = 0;
+let p2_sinnies = 0;
+let p3_vpoints = 0;
+let p3_sinnies = 0;
+let p4_vpoints = 0;
+let p4_sinnies = 0;
 
-function addPointsP1() {
-  p1_points++;
-  document.getElementById('p1_score').innerText = p1_points;
-  if (p1_points == 60) {
-    alert("Victory conditions met for casual play!");
+// DEL vpoints
+function delVpoints(player) {
+  if (player =='p1') {
+    p1_vpoints--;
+    if (p1_vpoints < 0) { p1_vpoints = 0; };
+    document.getElementById("p1_vpoints").innerText = p1_vpoints;
   };
-  if (p1_points == 77) {
-    alert("Victory conditions met for tournament play!");
+  if (player =='p2') {
+    p2_vpoints--;
+    if (p2_vpoints < 0) { p2_vpoints = 0; };
+    document.getElementById("p2_vpoints").innerText = p2_vpoints;
   };
-};
-
-function delPointsP1() {
-  p1_points--;
-  if (p1_points < 0) {
-    p1_points = 0;
+  if (player =='p3') {
+    p3_vpoints--;
+    if (p3_vpoints < 0) { p3_vpoints = 0; };
+    document.getElementById("p3_vpoints").innerText = p3_vpoints;
   };
-  document.getElementById('p1_score').innerText = p1_points;
-}
-
-function addSinnieP1() {
-  p1_sinnie++;
-  let p1sn = `p1s${p1_sinnie}`;
-  document.getElementById(p1sn).style.color = "red";
-  if (p1_sinnie == 6) {
-    alert("Victory conditons met!");
-  };
-};
-
-function delSinnieP1() {
-  let p1sn = `p1s${p1_sinnie}`;
-  p1_sinnie--;
-  if (p1_sinnie < 0) {
-    p1_sinnie = 0;
-  }
-  document.getElementById(p1sn).style.color = "#28282b";
-};
-
-// Player 2
-function addPointsP2() {
-  p2_points++;
-  document.getElementById('p2_score').innerText = p2_points;
-  if (p2_points == 60) {
-    alert("Victory conditions met for casual play!");
-  };
-  if (p2_points == 77) {
-    alert("Victory conditions met for tournament play!");
+  if (player =='p4') {
+    p4_vpoints--;
+    if (p4_vpoints < 0) { p4_vpoints = 0; };
+    document.getElementById("p4_vpoints").innerText = p4_vpoints;
   };
 };
 
-function delPointsP2() {
-  p2_points--;
-  if (p2_points < 0) {
-    p2_points = 0;
+// ADD vpoints
+function addVpoints(player) {
+  if (player =='p1') {
+    p1_vpoints++;
+    document.getElementById("p1_vpoints").innerText = p1_vpoints;
   };
-  document.getElementById('p2_score').innerText = p2_points;
-}
-
-function addSinnieP2() {
-  p2_sinnie++;
-  let p2sn = `p2s${p1_sinnie}`;
-  document.getElementById(p2sn).style.color = "red";
-  if (p2_sinnie == 6) {
-    alert("Victory conditons met!");
+  if (player =='p2') {
+    p2_vpoints++;
+    document.getElementById("p2_vpoints").innerText = p2_vpoints;
+  };
+  if (player =='p3') {
+    p3_vpoints++;
+    document.getElementById("p3_vpoints").innerText = p3_vpoints;
+  };
+  if (player =='p4') {
+    p4_vpoints++;
+    document.getElementById("p4_vpoints").innerText = p4_vpoints;
   };
 };
 
-function delSinnieP2() {
-  let p2sn = `p2s${p1_sinnie}`;
-  p2_sinnie--;
-  if (p2_sinnie < 0) {
-    p2_sinnie = 0;
-  }
-  document.getElementById(p2sn).style.color = "#28282b";
+
+// DEL sinnies
+function delSinnies(player) {
+  if (player == 'p1') {
+    let thisSinnie = `p1_sinnie${p1_sinnies}`;
+    p1_sinnies--;
+    if (p1_sinnies < 0) { p1_sinnies = 0; };
+    document.getElementById(thisSinnie).style.color = "#28282b";
+  };
+  if (player == 'p2') {
+    let thisSinnie = `p2_sinnie${p2_sinnies}`;
+    p2_sinnies--;
+    if (p2_sinnies < 0) { p2_sinnies = 0; };
+    document.getElementById(thisSinnie).style.color = "#28282b";
+  };
+  if (player == 'p3') {
+    let thisSinnie = `p3_sinnie${p3_sinnies}`;
+    p3_sinnies--;
+    if (p3_sinnies < 0) { p3_sinnies = 0; };
+    document.getElementById(thisSinnie).style.color = "#28282b";
+  };
+  if (player == 'p4') {
+    let thisSinnie = `p4_sinnie${p4_sinnies}`;
+    p4_sinnies--;
+    if (p4_sinnies < 0) { p4_sinnies = 0; };
+    document.getElementById(thisSinnie).style.color = "#28282b";
+  };
+};
+
+// ADD sinnies
+function addSinnies(player) {
+  if (player == 'p1') {
+    p1_sinnies++;
+    document.getElementById(`p1_sinnie${p1_sinnies}`).style.color = "red";
+  };
+  if (player == 'p2') {
+    p2_sinnies++;
+    document.getElementById(`p2_sinnie${p2_sinnies}`).style.color = "red";
+  };
+  if (player == 'p3') {
+    p3_sinnies++;
+    document.getElementById(`p3_sinnie${p3_sinnies}`).style.color = "red";
+  };
+  if (player == 'p4') {
+    p4_sinnies++;
+    document.getElementById(`p4_sinnie${p4_sinnies}`).style.color = "red";
+  };
 };
