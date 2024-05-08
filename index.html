@@ -2,59 +2,32 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Animo - Sharpen Your Sword</title>
-  <link href="style/style.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link href="style/style.css" rel="stylesheet" type="text/css">
   <script src="js/settings.js"></script>
 </head>
 <body>
-
-  <div id="scoreboard" class="scoreboard">
-    <div id="p1_card" class="playercard p1 duo">
-      <h4>Player 1</h4>
-      <h3>Victory Points</h3>
-      <div class="card_dec">-</div>
-      <div class="card_pts">0</div>
-      <div class="card_inc">+</div>
-      <h3>Sinnies Defeated</h3>
-      <div class="card_dec">-</div>
-      <div class="card_pts">[ 1 ]  [ 2 ]  [ 3 ]  [ 4 ]  [ 5 ]  [ 6 ]</div>
-      <div class="card_inc">+</div>
+<div class="scoreboard">
+  <div class="playercard p1">
+    <div class="cardtitle">Victory Points</div>
+    <div class="carddata" onClick="delPointsP1()"><span class="material-symbols-outlined">do_not_disturb_on</span></div>
+    <div id="p1_score" class="carddata">0</div>
+    <div class="carddata" onClick="addPointsP1()"><span class="material-symbols-outlined">add_circle</span></div>
+    <div class="cardtitle">Sinnies Defeated</div>
+    <div class="carddata" onClick="delSinnieP1()"><span class="material-symbols-outlined">do_not_disturb_on</span></div>
+    <div class="carddata">
+      <span id="p1s1"><span class="material-symbols-outlined">block</span></span>
+      <span id="p1s2"><span class="material-symbols-outlined">block</span></span>
+      <span id="p1s3"><span class="material-symbols-outlined">block</span></span>
+      <span id="p1s4"><span class="material-symbols-outlined">block</span></span>
+      <span id="p1s5"><span class="material-symbols-outlined">block</span></span>
+      <span id="p1s6"><span class="material-symbols-outlined">block</span></span>
     </div>
-    <div id="p2_card" class="playercard p2 duo">P2 Placeholder</div>
-    <div id="p3_card" class="playercard p3 duo">P3 Placeholder</div>
-    <div id="p4_card" class="playercard p4 duo">P4 placeholder</div>
-    <div id="hotbar" class="hotbar duo">Hotbar reserved for future use. <span class="material-symbols-outlined">settings</span> Settings are unavailable.</div>
+    <div class="carddata" onClick="addSinnieP1()"><span class="material-symbols-outlined">add_circle</span></div>
   </div>
-
-  <div id="settingsui" class="settingsui">
-    <h3>Settings</h3>
-    <p><label for="playerCount">Players:</label>
-      <select name="playerCount" id="playerCount" onChange="count_players()">
-        <option value="1">1</option>
-        <option value="2" selected="selected">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-      </select></p>
-    <p><label for="victoryPoints">Points to win:</label>
-      <select name="victoryPoints" id="victoryPoints">
-        <option value="60">60 (standard)</option>
-        <option value="77">77 (tournament)</option>
-      </select></p>
-    <p>TODO: Add offset for "Ellie" Truth Seeker (55 for standard, 70 for tournement)</p>
-    <p class="player1">
-      <input type="checkbox" id="p1_ellie" name="p1_ellie" value="True">
-      <label for="p1_ellie">Player 1</label></p>
-    <p class="player2">
-      <input type="checkbox" id="p2_ellie" name="p2_ellie" value="True">
-      <label for="p2_ellie">Player 2</label></p>
-    <p class="player3">
-      <input type="checkbox" id="p3_ellie" name="p3_ellie" value="True">
-      <label for="p3_ellie">Player 3</label></p>
-    <p class="player4">
-      <input type="checkbox" id="p4_ellie" name="p4_ellie" value="True">
-      <label for="p4_ellie">Player 4</label></p>
-    <p><a href="javascript:void(0)" onClick="hideSettings()">CLOSE</a></p>
-  </div>
+  <div class="playercard p2">P2 Placeholder</div>
+</div>
 </body>
 </html>

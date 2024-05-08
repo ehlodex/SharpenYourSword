@@ -7,7 +7,7 @@
 
 body {
 	background: #3b3b39;
-	color: #cac8bf;
+	color: #28282b;
   padding: 0px;
   margin: 0px;
 }
@@ -16,144 +16,36 @@ body {
   margin: 0px;
   width: 100%;
   height: 100dvh; /* or svh */
-  display: grid;
-  grid-template-rows: repeat(7, 1fr);
-  grid-template-columns: repeat(2, 1fr);
-  grid-row-gap: 0px;
-  grid-column-gap: 0px;
-}
-
-.playercard, .hotbar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .playercard.p1 {
   background-color: var(--color-faith);
+  transform: rotate(180deg);
 }
 
 .playercard.p2 {
   background-color: var(--color-hope);
 }
 
-.playercard.p3 {
-  background-color: var(--color-love);
+.playercard {
+  height: 50dvh;
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr 3fr;
+  grid-template-columns: 1fr 2fr 1fr;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
-.playercard.p4 {
-  background-color: var(--color-spirit);
-}
-
-.settingsui {
-  display: none;
-  position: absolute;
-  top: 2vh;
-  left: 2%;
-  width: 96%;
-  height: 96vh;
-  border: none;
-  background-color: white;
-  overflow: auto;
-}
-
-/* SOLO */
-.playercard.p1.solo {
-  display: flex;
-  grid-area: 2 / 1 / 8 / 3;
-}
-
-.playercard.p2.solo, .playercard.p3.solo, .playercard.p4.solo {
-  display: none;
-}
-
-.hotbar.solo {
-  grid-area: 1 / 1 / 2 / 3;
-}
-
-/* DUO */
-.playercard.p1.duo {
+.carddata {
   display: block;
-  grid-area: 5 / 1 / 8 / 3;
+  align-items: center;
+  justify-items: center;
 }
 
-.playercard.p2.duo {
-  display: block;
-  grid-area: 1 / 1 / 4 / 3;
-}
-
-.playercard.p3.duo, .playercard.p4.duo {
-  display: none;
-}
-
-.hotbar.duo {
-  grid-area: 4 / 1 / 5 / 3;
-}
-
-/* TRIO */
-.playercard.p1.trio {
-  display: flex;
-  grid-area: 6 / 1 / 8 / 3;
-}
-
-.playercard.p2.trio {
-  display: flex;
-  grid-area: 1 / 1 / 5 / 2;
-}
-
-.playercard.p3.trio {
-  display: flex;
-  grid-area: 1 / 2 / 5 / 3;
-}
-
-.playercard.p4.trio {
-  display: none;
-}
-
-.hotbar.trio {
-  grid-area: 5 / 1 / 6 / 3;
-}
-
-/* QUAD */
-.playercard.p1.quad {
-  grid-area: 5 / 1 / 8 / 2;
-}
-
-.playercard.p2.quad {
-  grid-area: 1 / 1 / 4 / 2;
-}
-
-.playercard.p3.quad {
-  grid-area: 1 / 2 / 4 / 3;
-}
-
-.playercard.p4.quad {
-  grid-area: 5 / 2 / 8 / 3;
-}
-
-.hotbar.quad {
-  grid-area: 4 / 1 / 5 / 3;
-}
-
-/* */
-.card_inc {
-  display: inline-block;
-  width: 25%;
-  background-color: red;
-  left: 0px;
-}
-
-.card_pts {
-  display: inline-block;
-}
-
-.card_dec {
-  display: inline-block;
-  width: 25%;
-  background-color: green;
-  margin-left: auto;
-}
-
-.playercard h3, .playercard.h4 {
+.cardtitle {
+  grid-column: span 3;
   text-align: center;
+  align-items: center;
+  justify-items: center;
 }

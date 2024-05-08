@@ -1,56 +1,79 @@
-let p1_name = "Player One";
-let p2_name = "Player Two";
-let p3_name = "Player Three";
-let p4_name = "Player Four";
+let p1_points = 0;
+let p1_sinnie = 0;
+let p2_points = 0;
+let p2_sinnie = 0;
 
-function count_players() {
-  let playerCount = document.getElementById('playerCount').value;
-  let p1card = document.getElementById("p1_card");
-  let p2card = document.getElementById("p2_card");
-  let p3card = document.getElementById("p3_card");
-  let p4card = document.getElementById("p4_card");
-  let hotbar = document.getElementById("hotbar");
-  if (playerCount == "4") {
-    p1card.className = "playercard p1 quad";
-    p2card.className = "playercard p2 quad";
-    p3card.className = "playercard p3 quad";
-    p4card.className = "playercard p4 quad";
-    hotbar.className = "hotbar quad";
+function addPointsP1() {
+  p1_points++;
+  document.getElementById('p1_score').innerText = p1_points;
+  if (p1_points == 60) {
+    alert("Victory conditions met for casual play!");
   };
-
-  if (playerCount == "3") {
-    p1card.className = "playercard p1 trio";
-    p2card.className = "playercard p2 trio";
-    p3card.className = "playercard p3 trio";
-    p4card.className = "playercard p4 trio";
-    hotbar.className = "hotbar trio";
-  };
-
-  if (playerCount == "2") {
-    p1card.className = "playercard p1 duo";
-    p2card.className = "playercard p2 duo";
-    p3card.className = "playercard p3 duo";
-    p4card.className = "playercard p4 duo";
-    hotbar.className = "hotbar duo";
-  };
-
-  if (playerCount == "1") {
-    p1card.className = "playercard p1 solo";
-    p2card.className = "playercard p2 solo";
-    p3card.className = "playercard p3 solo";
-    p4card.className = "playercard p4 solo";
-    hotbar.className = "hotbar solo";
+  if (p1_points == 77) {
+    alert("Victory conditions met for tournament play!");
   };
 };
 
-function showSettings() {
-  document.getElementById('scoreboard').style.display='none';
-  document.getElementById('settingsui').style.display='block';
-  //document.getElementById('settings_icon').setAttribute("onClick", "javascript: hideSettings();");
+function delPointsP1() {
+  p1_points--;
+  if (p1_points < 0) {
+    p1_points = 0;
+  };
+  document.getElementById('p1_score').innerText = p1_points;
+}
+
+function addSinnieP1() {
+  p1_sinnie++;
+  let p1sn = `p1s${p1_sinnie}`;
+  document.getElementById(p1sn).style.color = "red";
+  if (p1_sinnie == 6) {
+    alert("Victory conditons met!");
+  };
 };
 
-function hideSettings() {
-  document.getElementById('scoreboard').style.display='grid';
-  document.getElementById('settingsui').style.display='none';
-  //document.getElementById('settings_icon').setAttribute("onClick", "javascript: showSettings();");
+function delSinnieP1() {
+  let p1sn = `p1s${p1_sinnie}`;
+  p1_sinnie--;
+  if (p1_sinnie < 0) {
+    p1_sinnie = 0;
+  }
+  document.getElementById(p1sn).style.color = "#28282b";
+};
+
+// Player 2
+function addPointsP2() {
+  p2_points++;
+  document.getElementById('p2_score').innerText = p2_points;
+  if (p2_points == 60) {
+    alert("Victory conditions met for casual play!");
+  };
+  if (p2_points == 77) {
+    alert("Victory conditions met for tournament play!");
+  };
+};
+
+function delPointsP2() {
+  p2_points--;
+  if (p2_points < 0) {
+    p2_points = 0;
+  };
+  document.getElementById('p2_score').innerText = p2_points;
+}
+
+function addSinnieP2() {
+  p2_sinnie++;
+  let p2sn = `p2s${p1_sinnie}`;
+  document.getElementById(p2sn).style.color = "red";
+  if (p2_sinnie == 6) {
+    alert("Victory conditons met!");
+  };
+};
+
+function delSinnieP2() {
+  let p2sn = `p2s${p1_sinnie}`;
+  p2_sinnie--;
+  if (p2_sinnie < 0) {
+    p2_sinnie = 0;
+  }
+  document.getElementById(p2sn).style.color = "#28282b";
 };
