@@ -1,4 +1,4 @@
-let p1_vpoints = 0;
+let p1_vpoints = 49;
 let p1_sinnies = 0;
 let p2_vpoints = 0;
 let p2_sinnies = 0;
@@ -9,6 +9,7 @@ let p4_sinnies = 0;
 
 let tournamentMode = 0;
 let vpointsToWin = 60;
+let vpointsEllie = 5;
 let sinniesToWin = 6;
 let playerCount = 2;
 
@@ -112,10 +113,12 @@ function toggleTournamentMode() {
     tournamentMode = 1;
     document.getElementById("tournamentMode").innerText = "toggle_on";
     vpointsToWin = 77;
+    vpointsEllie = 7;
   } else {
     tournamentMode = 0;
     document.getElementById("tournamentMode").innerText = "toggle_off";
     vpointsToWin = 60;
+    vpointsEllie = 5;
   }
   checkVictoryConditions();
 }
@@ -133,24 +136,35 @@ function delPlayer() {
 }
 
 function checkVictoryConditions() {
-  if (p1_vpoints >= vpointsToWin) {
+  if (p1_vpoints >= (vpointsToWin - (vpointsEllie * p1_ellie.checked))) {
     alert("Player 1 wins by Virtuous Points!");
   } else if (p1_sinnies >= 6) {
     alert("Player 1 wins by defeating 6 sinnies!");
   };
-  if (p2_vpoints >= vpointsToWin) {
+  if (p2_vpoints >= (vpointsToWin - (vpointsEllie * p2_ellie.checked))) {
     alert("Player 2 wins by Virtuous Points!");
   } else if (p2_sinnies >= 6) {
     alert("Player 2 wins by defeating 6 sinnies!");
   };
-  if (p3_vpoints >= vpointsToWin) {
+  if (p3_vpoints >= (vpointsToWin - (vpointsEllie * p3_ellie.checked))) {
     alert("Player 3 wins by Virtuous Points!");
   } else if (p3_sinnies >= 6) {
     alert("Player 3 wins by defeating 6 sinnies!");
   };
-  if (p4_vpoints >= vpointsToWin) {
+  if (p4_vpoints >= (vpointsToWin - (vpointsEllie * p4_ellie.checked))) {
     alert("Player 4 wins by Virtuous Points!");
   } else if (p4_sinnies >= 6) {
     alert("Player 4 wins by defeating 6 sinnies!");
   };
+}
+
+function showSettings() {
+  document.getElementById("scoreboard").style.display = "none";
+  document.getElementById("settings").style.display = "block";
+}
+
+function hideSettings() {
+  document.getElementById("scoreboard").style.display = "grid";
+  document.getElementById("settings").style.display = "none";
+  checkVictoryConditions();
 }

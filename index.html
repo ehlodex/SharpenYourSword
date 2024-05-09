@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<div class="scoreboard">
+<div class="scoreboard" id="scoreboard">
   <!-- PLAYER 1 -->
   <div class="playercard p1 duo">
     <div class="carddata controls del" id="p1_delVpoints" onClick="delVpoints('p1');"><span class="material-symbols-outlined">remove</span></div>
@@ -57,9 +57,28 @@
     <span class="material-symbols-outlined square" id="tournamentMode" onClick="toggleTournamentMode();">toggle_off</span>
     <span class="half-square">77</span>
     <span class="half-square">&nbsp;</span>
-    <span class="material-symbols-outlined square">settings</span>
+    <span class="material-symbols-outlined square" onClick="showSettings();">settings</span>
   </div>
+</div><!-- </scoreboard> -->
 
+<div class="settings" id="settings">
+  <div class="settingsbar">Settings / <a href="javascript:void(0)" onClick="hideSettings();">CLOSE</a></div>
+  <div class="playersettings p1">Player 1<br />
+    <input type="checkbox" id="p1_ellie" name="p1_ellie" value=1>
+    <label for="p1_ellie">My Truth Seeker is Ellie</label>
+  </div>
+  <div class="playersettings p2">Player 2<br />
+    <input type="checkbox" id="p2_ellie" name="p2_ellie" value=1>
+    <label for="p2_ellie">My Truth Seeker is Ellie</label>
+  </div>
+  <div class="playersettings p3">Player 3<br />
+    <input type="checkbox" id="p3_ellie" name="p3_ellie" value=1>
+    <label for="p3_ellie">My Truth Seeker is Ellie</label>
+  </div>
+  <div class="playersettings p4">Player 4<br />
+    <input type="checkbox" id="p4_ellie" name="p4_ellie" value=1>
+    <label for="p4_ellie">My Truth Seeker is Ellie</label>
+  </div>
 </div>
 
 </body>
