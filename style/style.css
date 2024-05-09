@@ -133,13 +133,15 @@ body {
   text-align: center;
 }
 
-
-/* SOLO */
-.playercard.p0.solo {
-  grid-area: 1 / 1 / 7 / 3;
-  transform: rotate(0deg);
+.p0 > .endgame {
+  transform: rotate(180deg);
 }
 
+.p0 > .vpoints, .p0 > .sinnies {
+  transform: rotate(180deg);
+}
+
+/* SOLO */
 .playercard.p1.solo, .playercard.p1.duo {
   grid-area: 8 / 1 / 14 / 3;
   transform: rotate(0deg);
@@ -154,7 +156,7 @@ body {
 }
 
 /* DUO */
-.playercard.p2.duo {
+.playercard.p2.duo, .playercard.p0.solo {
   grid-area: 1 / 1 / 7 / 3;
   transform: rotate(180deg);
 }
