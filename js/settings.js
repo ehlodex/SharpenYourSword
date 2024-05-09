@@ -1,4 +1,4 @@
-let p1_vpoints = 58;
+let p1_vpoints = 0;
 let p1_sinnies = 0;
 let p2_vpoints = 0;
 let p2_sinnies = 0;
