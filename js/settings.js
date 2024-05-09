@@ -176,3 +176,11 @@ function hideSettings() {
   document.getElementById("settings").style.display = "none";
   checkVictoryConditions();
 }
+
+// Change player colors
+function playerColor(player, colorId) {
+  let r = document.querySelector(':root');
+  let rs = getComputedStyle(r);
+  let newColor = rs.getPropertyValue(`--${colorId}`);
+  r.style.setProperty(`--${player}`, newColor);
+}
