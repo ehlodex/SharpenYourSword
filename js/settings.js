@@ -144,25 +144,36 @@ function delPlayer() {
 // TODO: Make the display better (div overlay?)
 function checkVictoryConditions() {
   if (p1_vpoints >= (vpointsToWin - (vpointsEllie * p1_ellie.checked))) {
-    alert("Player 1 wins by Virtue Points!");
+    gameOver('p1', 'vpoints');
   } else if (p1_sinnies >= 6) {
-    alert("Player 1 wins by defeating 6 sinnies!");
+    gameOver('p1', 'sinnies')
   };
   if (p2_vpoints >= (vpointsToWin - (vpointsEllie * p2_ellie.checked))) {
-    alert("Player 2 wins by Virtue Points!");
+    gameOver('p2', 'vpoints');
   } else if (p2_sinnies >= 6) {
-    alert("Player 2 wins by defeating 6 sinnies!");
+    gameOver('p2', 'sinnies');
   };
   if (p3_vpoints >= (vpointsToWin - (vpointsEllie * p3_ellie.checked))) {
-    alert("Player 3 wins by Virtue Points!");
+    gameOver('p3', 'vpoints');
   } else if (p3_sinnies >= 6) {
-    alert("Player 3 wins by defeating 6 sinnies!");
+    gameOver('p3', 'sinnies');
   };
   if (p4_vpoints >= (vpointsToWin - (vpointsEllie * p4_ellie.checked))) {
-    alert("Player 4 wins by Virtue Points!");
+    gameOver('p4', 'vpoints');
   } else if (p4_sinnies >= 6) {
-    alert("Player 4 wins by defeating 6 sinnies!");
+    gameOver('p4', 'sinnies');
   };
+}
+
+function gameOver(player, condition) {
+  let victoryMessage = "";
+  if (condition == 'vpoints') { victoryMessage = `${player} won by scoring ${vpointsToWin} Virtue Points`; };
+  if (condition == 'sinnies') { victoryMessage = `${player} won by defeating 6 sinnies`; };
+  document.getElementById('p1_card').innerHTML = `<div class='endgame' ondblclick='location.reload()'><h2>You lost :(</h2>${victoryMessage}</div>`;
+  document.getElementById('p2_card').innerHTML = `<div class='endgame' ondblclick='location.reload()'><h2>You lost :(</h2>${victoryMessage}</div>`;
+  document.getElementById('p3_card').innerHTML = `<div class='endgame' ondblclick='location.reload()'>You lost :(<br />${victoryMessage}</div>`;
+  document.getElementById('p4_card').innerHTML = `<div class='endgame' ondbllick='location.reload()'>You lost :(<br />${victoryMessage}</div>`;
+  document.getElementById(`${player}_card`).innerHTML = `<div class='endgame' ondblclick='location.reload()'><h2>YOU WIN!</h2>${victoryMessage}</div>`;
 }
 
 // Show, Hide Settings
