@@ -49,12 +49,15 @@
   <div class="playercard p4 duo">Player 4</div>
   
   <div class="hotbar duo">
-    <span class="material-symbols-outlined">person_add</span>
-    <span>Players: 2</span>
-    <span class="material-symbols-outlined">person_remove</span>
-    <span>Tournament mode:</span>
-    <span class="material-symbols-outlined" id="tournamentMode" onClick="toggleTournamentMode();">toggle_off</span><span id="tournamentModeStatus">OFF (60)</span>
-    <span class="material-symbols-outlined">settings</span> Settings
+    <span class="material-symbols-outlined square" onClick="delPlayer();">person_remove</span>
+    <span class="half-square" id="player_count">2</span>
+    <span class="material-symbols-outlined square" onClick="addPlayer();">person_add</span>
+    <span class="half-square">&nbsp;</span>
+    <span class="half-square">66</span>
+    <span class="material-symbols-outlined square" id="tournamentMode" onClick="toggleTournamentMode();">toggle_off</span>
+    <span class="half-square">77</span>
+    <span class="half-square">&nbsp;</span>
+    <span class="material-symbols-outlined square">settings</span>
   </div>
 
 </div>

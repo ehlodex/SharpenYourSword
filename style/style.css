@@ -53,6 +53,24 @@ body {
   background-image: linear-gradient(to left, rgba(255,255,255,0), rgba(255,255,255,0.1));
 }
 
+.hotbar {
+  color: #F9F5EC;
+}
+
+.square {
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  align-content: center;
+  justify-content: center;
+}
+
+.half-square {
+  height: 100%;
+  aspect-ratio: 1 / 2;
+  align-content: center;
+  justify-content: center;
+}
+
 /* SOLO */
 .playercard.p1.solo {
   grid-area: 2 / 1 / 14 / 3;
