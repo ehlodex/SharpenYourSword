@@ -3,10 +3,12 @@
   --color-hope: #f2e090;
   --color-love: #dd7788;
   --color-spirit: #7a9460;
+  --color-dark: #3b3b39;
+  --color-light: #F9F5EC;
 }
 
 body {
-	background: #3b3b39;
+	background: var(--color-dark);
 	color: #28282b;
   padding: 0px;
   margin: 0px;
@@ -39,6 +41,12 @@ body {
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
+}
+
+.closeicon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 .vpoints {
@@ -78,19 +86,28 @@ body {
   left: 0px;
   width: 100dvw;
   height: 100dvh;
-  background-color: white;
+  background-color: var(--color-dark);
+  color: var(--color-light);
   overflow: auto;
 }
 
 .settingsbar {
   width: 100%;
-  height: 8dvh
+  height: 8dvh;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .playersettings {
   width: 100%;
   height: 23dvh;
   font-size: 1.5em;
+  color: var(--color-dark);
+}
+
+.sinnies > span {
+  opacity: 0.3;
 }
 
 /* SOLO */
