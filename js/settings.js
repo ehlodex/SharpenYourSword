@@ -186,8 +186,11 @@ function checkVictoryConditions() {
     gameOver('p4', 'sinnies');
   };
   if (p0_vpoints >= 30) {
-    document.getElementById("p0_card").innerHTML = "<div class='endgame' ondblclick='location.reload()'>You have reached the end of the Search My Heart campaign</div>";
-    document.getElementById("p1_card").innerHTML = `<div class='endgame' ondblclick='location.reload()'><h2>Campaign Complete</h2>You scored ${p1_vpoints} Virtue Points during the solo campaign</div>`;
+    document.getElementById("p0_card").innerHTML = "<div class='endgame' ondblclick='location.reload()'>You have reached the end of<br />the Search My Heart campaign</div>";
+    document.getElementById("p1_card").innerHTML = `<div class='endgame' ondblclick='location.reload()'><h2>Campaign Complete!</h2>You scored ${p1_vpoints} Virtue Points<br />and defeated ${p1_sinnies} Sinnies.</div>`;
+    document.getElementById('p2_card').innerHTML = `<div class='endgame' ondblclick='location.reload()'><span class='material-symbols-outlined'>cancel</span></div>`;
+    document.getElementById('p3_card').innerHTML = `<div class='endgame' ondblclick='location.reload()'><span class='material-symbols-outlined'>cancel</span></div>`;
+    document.getElementById('p4_card').innerHTML = `<div class='endgame' ondblclick='location.reload()'><span class='material-symbols-outlined'>cancel</span></div>`;
   };
 }
 

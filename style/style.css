@@ -131,6 +131,7 @@ body {
   justify-content: center;
   align-content: center;
   text-align: center;
+  padding: 10px; 
 }
 
 .p0 > .endgame {
