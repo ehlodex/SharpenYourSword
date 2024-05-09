@@ -33,6 +33,7 @@ body {
   grid-template-columns: 1fr 4fr 1fr;
 }
 
+.p0 { background-color: #110011; color: var(--light); }
 .p1 { background-color: var(--p1); color: var(--light); }
 .p2 { background-color: var(--p2); color: var(--light); }
 .p3 { background-color: var(--p3); color: var(--light); }
@@ -125,9 +126,22 @@ body {
   opacity: 0.3;
 }
 
+.endgame {
+  grid-area: 1 / 1 / 3 / 4;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+
 /* SOLO */
-.playercard.p1.solo {
-  grid-area: 2 / 1 / 14 / 3;
+.playercard.p0.solo {
+  grid-area: 1 / 1 / 7 / 3;
+  transform: rotate(0deg);
+}
+
+.playercard.p1.solo, .playercard.p1.duo {
+  grid-area: 8 / 1 / 14 / 3;
   transform: rotate(0deg);
 }
 
@@ -139,25 +153,13 @@ body {
   grid-area: 1 / 1 / 2 / 3;
 }
 
-.endgame {
-  grid-area: 1 / 1 / 3 / 4;
-  justify-content: center;
-  align-content: center;
-  text-align: center;
-}
-
 /* DUO */
-.playercard.p1.duo {
-  grid-area: 8 / 1 / 14 / 3;
-  transform: rotate(0deg);
-}
-
 .playercard.p2.duo {
   grid-area: 1 / 1 / 7 / 3;
   transform: rotate(180deg);
 }
 
-.playercard.p3.duo, .playercard.p4.duo {
+.playercard.p0.duo, .playercard.p3.duo, .playercard.p4.duo {
   display: none;
 }
 
@@ -178,7 +180,7 @@ body {
   grid-area: 1 / 2 / 7 / 3;
 }
 
-.playercard.p4.trio {
+.playercard.p0.trio, .playercard.p4.trio {
   display: none;
 }
 
@@ -187,6 +189,10 @@ body {
 }
 
 /* QUAD */
+.playercard.p0.quad {
+  display: none;
+}
+
 .playercard.p1.quad {
   grid-area: 8 / 1 / 14 / 2;
 }

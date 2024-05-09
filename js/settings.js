@@ -1,3 +1,4 @@
+let p0_vpoints = 0;
 let p1_vpoints = 0;
 let p1_sinnies = 0;
 let p2_vpoints = 0;
@@ -15,7 +16,12 @@ let playerCount = 2;
 
 // DEL vpoints
 function delVpoints(player) {
-  if (player =='p1') {
+  if (player == 'p0') {
+    p0_vpoints--;
+    if (p0_vpoints < 0) { p0_vpoints = 0; };
+    document.getElementById("p0_vpoints").innerText = p0_vpoints;
+  }
+  if (player == 'p1') {
     p1_vpoints--;
     if (p1_vpoints < 0) { p1_vpoints = 0; };
     document.getElementById("p1_vpoints").innerText = p1_vpoints;
@@ -39,6 +45,10 @@ function delVpoints(player) {
 
 // ADD vpoints
 function addVpoints(player) {
+  if (player == 'p0') {
+    p0_vpoints++;
+    document.getElementById("p0_vpoints").innerText = p0_vpoints;
+  }
   if (player =='p1') {
     p1_vpoints++;
     document.getElementById("p1_vpoints").innerText = p1_vpoints;
@@ -127,9 +137,9 @@ function toggleTournamentMode() {
 // Add Player
 function addPlayer() {
   playerCount++;
-  if (playerCount > 4) { playerCount = 4; };
+  if (playerCount > 2) { playerCount = 2; };
   document.getElementById("player_count").innerText = playerCount;
-  // TODO: Change board layout
+  adjustLayout();
 }
 
 // Remove Player
@@ -137,11 +147,23 @@ function delPlayer() {
   playerCount--;
   if (playerCount < 1) { playerCount = 1; };
   document.getElementById("player_count").innerText = playerCount;
-  // TODO: Change board layout
+  adjustLayout();
+}
+
+function adjustLayout() {
+  let newClass = "playercard"
+  if (playerCount == 1) { newClass += " solo"; };
+  if (playerCount == 2) { newClass += " duo";  };
+  if (playerCount == 3) { newClass += " trio"; };
+  if (playerCount == 4) { newClass += " quad"; };
+  document.getElementById("p0_card").className = `p0 ${newClass}`;
+  document.getElementById("p1_card").className = `p1 ${newClass}`;
+  document.getElementById("p2_card").className = `p2 ${newClass}`;
+  document.getElementById("p3_card").className = `p3 ${newClass}`;
+  document.getElementById("p4_card").className = `p4 ${newClass}`;
 }
 
 // Victory Conditions
-// TODO: Make the display better (div overlay?)
 function checkVictoryConditions() {
   if (p1_vpoints >= (vpointsToWin - (vpointsEllie * p1_ellie.checked))) {
     gameOver('p1', 'vpoints');
@@ -163,12 +185,17 @@ function checkVictoryConditions() {
   } else if (p4_sinnies >= 6) {
     gameOver('p4', 'sinnies');
   };
+  if (p0_vpoints >= 30) {
+    document.getElementById("p0_card").innerHTML = "<div class='endgame' ondblclick='location.reload()'>You have reached the end of the Search My Heart campaign</div>";
+    document.getElementById("p1_card").innerHTML = `<div class='endgame' ondblclick='location.reload()'><h2>Campaign Complete</h2>You scored ${p1_vpoints} Virtue Points during the solo campaign</div>`;
+  };
 }
 
 function gameOver(player, condition) {
   let victoryMessage = "";
   if (condition == 'vpoints') { victoryMessage = `${player} won by scoring ${vpointsToWin} Virtue Points`; };
   if (condition == 'sinnies') { victoryMessage = `${player} won by defeating 6 sinnies`; };
+  document.getElementById('p0_card').innerHTML = "<div class='endgame' ondblclick='location.reload()'>You have reached the end of the Search My Heart campaign</div>";
   document.getElementById('p1_card').innerHTML = `<div class='endgame' ondblclick='location.reload()'><h2>You lost :(</h2>${victoryMessage}</div>`;
   document.getElementById('p2_card').innerHTML = `<div class='endgame' ondblclick='location.reload()'><h2>You lost :(</h2>${victoryMessage}</div>`;
   document.getElementById('p3_card').innerHTML = `<div class='endgame' ondblclick='location.reload()'>You lost :(<br />${victoryMessage}</div>`;
