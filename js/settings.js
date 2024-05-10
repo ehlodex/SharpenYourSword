@@ -1,10 +1,14 @@
 let p0_vpoints = 0;
+let p1_name = "Player 1";
 let p1_vpoints = 0;
 let p1_sinnies = 0;
+let p2_name = "Player 2";
 let p2_vpoints = 0;
 let p2_sinnies = 0;
+let p3_name = "Player 3";
 let p3_vpoints = 0;
 let p3_sinnies = 0;
+let p4_name = "Player 4";
 let p4_vpoints = 0;
 let p4_sinnies = 0;
 
@@ -137,7 +141,7 @@ function toggleTournamentMode() {
 // Add Player
 function addPlayer() {
   playerCount++;
-  if (playerCount > 2) { playerCount = 2; };
+  if (playerCount > 4) { playerCount = 4; };
   document.getElementById("player_count").innerText = playerCount;
   adjustLayout();
 }
@@ -151,16 +155,17 @@ function delPlayer() {
 }
 
 function adjustLayout() {
-  let newClass = "playercard"
-  if (playerCount == 1) { newClass += " solo"; };
-  if (playerCount == 2) { newClass += " duo";  };
-  if (playerCount == 3) { newClass += " trio"; };
-  if (playerCount == 4) { newClass += " quad"; };
-  document.getElementById("p0_card").className = `p0 ${newClass}`;
-  document.getElementById("p1_card").className = `p1 ${newClass}`;
-  document.getElementById("p2_card").className = `p2 ${newClass}`;
-  document.getElementById("p3_card").className = `p3 ${newClass}`;
-  document.getElementById("p4_card").className = `p4 ${newClass}`;
+  let newClass = "duo"
+  if (playerCount == 1) { newClass = " solo"; };
+  if (playerCount == 2) { newClass = " duo";  };
+  if (playerCount == 3) { newClass = " trio"; };
+  if (playerCount == 4) { newClass = " quad"; };
+  document.getElementById("p0_card").className = `playercard p0 ${newClass}`;
+  document.getElementById("p1_card").className = `playercard p1 ${newClass}`;
+  document.getElementById("p2_card").className = `playercard p2 ${newClass}`;
+  document.getElementById("p3_card").className = `playercard p3 ${newClass}`;
+  document.getElementById("p4_card").className = `playercard p4 ${newClass}`;
+  document.getElementById("hotbar").className = `hotbar ${newClass}`;
 }
 
 // Victory Conditions
@@ -195,14 +200,19 @@ function checkVictoryConditions() {
 }
 
 function gameOver(player, condition) {
+  let winnerName = player;
+  if (player =='p1') { winnerName = p1_name; };
+  if (player =='p2') { winnerName = p2_name; };
+  if (player =='p3') { winnerName = p3_name; };
+  if (player =='p4') { winnerName = p4_name; };
   let victoryMessage = "";
-  if (condition == 'vpoints') { victoryMessage = `${player} won by scoring ${vpointsToWin} Virtue Points`; };
-  if (condition == 'sinnies') { victoryMessage = `${player} won by defeating 6 sinnies`; };
-  document.getElementById('p0_card').innerHTML = "<div class='endgame' ondblclick='location.reload()'>You have reached the end of the Search My Heart campaign</div>";
+  if (condition == 'vpoints') { victoryMessage = `${winnerName} won by scoring ${vpointsToWin} Virtue Points`; };
+  if (condition == 'sinnies') { victoryMessage = `${winnerName} won by defeating 6 sinnies`; };
+  document.getElementById('p0_card').innerHTML = "<div class='endgame' ondblclick='location.reload()'>You have reached the end of<br />the Search My Heart campaign</div>";
   document.getElementById('p1_card').innerHTML = `<div class='endgame' ondblclick='location.reload()'><h2>You lost :(</h2>${victoryMessage}</div>`;
   document.getElementById('p2_card').innerHTML = `<div class='endgame' ondblclick='location.reload()'><h2>You lost :(</h2>${victoryMessage}</div>`;
-  document.getElementById('p3_card').innerHTML = `<div class='endgame' ondblclick='location.reload()'>You lost :(<br />${victoryMessage}</div>`;
-  document.getElementById('p4_card').innerHTML = `<div class='endgame' ondbllick='location.reload()'>You lost :(<br />${victoryMessage}</div>`;
+  document.getElementById('p3_card').innerHTML = `<div class='endgame' ondblclick='location.reload()'><h2>You lost :(</h2>${victoryMessage}</div>`;
+  document.getElementById('p4_card').innerHTML = `<div class='endgame' ondblclick='location.reload()'><h2>You lost :(</h2>${victoryMessage}</div>`;
   document.getElementById(`${player}_card`).innerHTML = `<div class='endgame' ondblclick='location.reload()'><h2>YOU WIN!</h2>${victoryMessage}</div>`;
 }
 
@@ -210,6 +220,10 @@ function gameOver(player, condition) {
 function showSettings() {
   document.getElementById("scoreboard").style.display = "none";
   document.getElementById("settings").style.display = "block";
+  document.getElementById("p1_editname").value = p1_name;
+  document.getElementById("p2_editname").value = p2_name;
+  document.getElementById("p3_editname").value = p3_name;
+  document.getElementById("p4_editname").value = p4_name;
 }
 
 function hideSettings() {
@@ -224,4 +238,18 @@ function playerColor(player, colorId) {
   let rs = getComputedStyle(r);
   let newColor = rs.getPropertyValue(`--${colorId}`);
   r.style.setProperty(`--${player}`, newColor);
+}
+
+function saveNames() {
+  p1_name = document.getElementById("p1_editname").value;
+  document.getElementById("p1_name").innerText = p1_name;
+
+  p2_name = document.getElementById("p2_editname").value;
+  document.getElementById("p2_name").innerText = p2_name;
+
+  p3_name = document.getElementById("p3_editname").value;
+  document.getElementById("p3_name").innerText = p3_name;
+
+  p4_name = document.getElementById("p4_editname").value;
+  document.getElementById("p4_name").innerText = p4_name;
 }

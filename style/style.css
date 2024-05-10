@@ -29,8 +29,8 @@ body {
 
 .playercard {
   display: grid;
-  grid-template-rows: 3fr 1fr;
-  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .p0 { background-color: #110011; color: var(--light); }
@@ -111,9 +111,22 @@ body {
   font-size: 1.5em;
 }
 
-.playersettings > .square {
-  margin-left: 5px;
-  height: 5dvh;
+.playersettings > div > .square {
+  margin-right: 5px;
+  height: 66%;
+}
+
+.playersettings > div {
+  display: block;
+  height: 33%;
+  align-content: center;
+  padding-left: 10px;
+}
+
+.editname {
+  height: 50%;
+  margin-right: 10px;
+  border: none;
 }
 
 .color-faith { background-color: var(--faith); }
@@ -138,26 +151,32 @@ body {
   transform: rotate(180deg);
 }
 
-.p0 > .vpoints, .p0 > .sinnies {
-  transform: rotate(180deg);
+/* Hotbar Display */
+.hotbar.solo, .hotbar.duo, .hotbar.quad {
+  grid-area: 7 / 1 / 8 / 3;
+}
+
+.hotbar.trio {
+  grid-area: 8 / 1 / 9 / 3;
 }
 
 /* SOLO */
+.playercard.p0.solo {
+  grid-area: 1 / 1 / 7 / 3;
+  transform: none;
+}
+
 .playercard.p1.solo, .playercard.p1.duo {
   grid-area: 8 / 1 / 14 / 3;
-  transform: rotate(0deg);
+  transform: none;
 }
 
 .playercard.p2.solo, .playercard.p3.solo, .playercard.p4.solo {
   display: none;
 }
 
-.hotbar.solo {
-  grid-area: 1 / 1 / 2 / 3;
-}
-
 /* DUO */
-.playercard.p2.duo, .playercard.p0.solo {
+.playercard.p2.duo {
   grid-area: 1 / 1 / 7 / 3;
   transform: rotate(180deg);
 }
@@ -166,52 +185,53 @@ body {
   display: none;
 }
 
-.hotbar.duo {
-  grid-area: 7 / 1 / 8 / 3;
-}
-
 /* TRIO */
 .playercard.p1.trio {
-  grid-area: 8 / 1 / 14 / 3;
+  grid-area: 9 / 1 / 14 / 3;
+  transform: none;
 }
 
 .playercard.p2.trio {
-  grid-area: 1 / 1 / 7 / 2;
+  grid-area: 1 / 1 / 8 / 2;
+  writing-mode: vertical-rl;
+  transform: none;
 }
 
 .playercard.p3.trio {
-  grid-area: 1 / 2 / 7 / 3;
+  grid-area: 1 / 2 / 8 / 3;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
 }
 
 .playercard.p0.trio, .playercard.p4.trio {
   display: none;
 }
 
-.hotbar.trio {
-  grid-area: 7 / 1 / 8 / 3;
+/* QUAD */
+.playercard.quad {
+  writing-mode: vertical-rl;
 }
 
-/* QUAD */
 .playercard.p0.quad {
   display: none;
 }
 
 .playercard.p1.quad {
   grid-area: 8 / 1 / 14 / 2;
+  transform: none;
 }
 
 .playercard.p2.quad {
   grid-area: 1 / 1 / 7 / 2;
+  transform: none;
 }
 
 .playercard.p3.quad {
-  grid-area: 1 / 2 / 8 / 3;
+  grid-area: 1 / 2 / 7 / 3;
+  transform: rotate(180deg);
 }
 
 .playercard.p4.quad {
   grid-area: 8 / 2 / 14 / 3;
-}
-
-.hotbar.quad {
-  grid-area: 7 / 1 / 8 / 3;
+  transform: rotate(180deg);
 }
