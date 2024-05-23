@@ -18,6 +18,8 @@ let vpointsEllie = 5;
 let sinniesToWin = 6;
 let playerCount = 2;
 
+let wakeLock = null;
+
 // DEL vpoints
 function delVpoints(player) {
   if (player == 'p0') {
@@ -138,7 +140,7 @@ function toggleTournamentMode() {
   checkVictoryConditions();
 }
 
-// Add Player
+// ADD Player
 function addPlayer() {
   playerCount++;
   if (playerCount > 4) { playerCount = 4; };
@@ -146,7 +148,7 @@ function addPlayer() {
   adjustLayout();
 }
 
-// Remove Player
+// DEL Player
 function delPlayer() {
   playerCount--;
   if (playerCount < 1) { playerCount = 1; };
@@ -154,6 +156,7 @@ function delPlayer() {
   adjustLayout();
 }
 
+// Change scoreboard layout
 function adjustLayout() {
   let newClass = "duo"
   if (playerCount == 1) { newClass = " solo"; };
@@ -199,7 +202,9 @@ function checkVictoryConditions() {
   };
 }
 
+// Somebody won!
 function gameOver(player, condition) {
+  releaseWakeLock();
   let winnerName = player;
   if (player =='p1') { winnerName = p1_name; };
   if (player =='p2') { winnerName = p2_name; };
@@ -240,6 +245,7 @@ function playerColor(player, colorId) {
   r.style.setProperty(`--${player}`, newColor);
 }
 
+// Edit player names
 function saveNames() {
   p1_name = document.getElementById("p1_editname").value;
   document.getElementById("p1_name").innerText = p1_name;
@@ -253,3 +259,30 @@ function saveNames() {
   p4_name = document.getElementById("p4_editname").value;
   document.getElementById("p4_name").innerText = p4_name;
 }
+
+// copypasta from https://developer.chrome.com/blog/new-in-chrome-79/#wake-lock
+// Function that attempts to request a wake lock.
+const requestWakeLock = async () => {
+  try {
+    wakeLock = await navigator.wakeLock.request('screen');
+    wakeLock.addEventListener('release', () => {
+      console.log('Wake Lock was released');
+    });
+    console.log('Wake Lock is active');
+  } catch (err) {
+    console.error(`${err.name}, ${err.message}`);
+  }
+};
+
+// Function that attempts to release the wake lock.
+const releaseWakeLock = async () => {
+  if (!wakeLock) {
+    return;
+  }
+  try {
+    await wakeLock.release();
+    wakeLock = null;
+  } catch (err) {
+    console.error(`${err.name}, ${err.message}`);
+  }
+};
